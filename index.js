@@ -8,7 +8,7 @@ async function captureScreenshot() {
         browser = await puppeteer.launch({ headless: true });
         const page = await browser.newPage();
         await page.setViewport({ width: 1000, height: 630 });
-        await page.goto("http://localhost:3000/chart", { waitUntil: "networkidle2" });
+        await page.goto("https://coup.aappb.org/chart", { waitUntil: "networkidle2" });
 
         async function screenshotDOMElement(selector, padding = 1) {
             const rect = await page.evaluate((selector) => {
