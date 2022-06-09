@@ -7,7 +7,7 @@ const fetchImg = async (url) => {
     browser = await puppeteer.launch({ headless: true });
     const page = await browser.newPage();
     await page.setViewport({ width: 1000, height: 630 });
-    await page.goto(`http://localhost:3000/person/${url}`, {
+    await page.goto(`http://localhost:3000/capture/${url}`, {
       waitUntil: "networkidle2",
     });
 
