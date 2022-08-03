@@ -57,6 +57,8 @@ const fetchAllAvatars = async (_) => {
     await fetchImg(id);
   }
   console.log(`\n🎉 finished fetching avatars `);
+
+  // await fetchImg('NAY-20220601-00003')
 };
 
 fetchAllAvatars();
