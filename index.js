@@ -51,17 +51,10 @@ async function captureImage(
   }
 }
 
-captureImage(1000, 630, 60, "#chart", `${baseURL}/graph`, "preview");
+captureImage(1000, 630, 60, "#chart", `${baseURL}/graph`, "preview_en");
 captureImage(1000, 630, 60, "#chart", `${baseURL}/mm/graph`, "preview_mm");
 captureImage(415, 750, 0, "#chart", `${baseURL}/graph`, "mobilegraph_en");
-captureImage(
-  415,
-  750,
-  0,
-  "#chart",
-  `${baseURL}/mm/graph`,
-  "mobilegraph_mm"
-);
+captureImage(415, 750, 0, "#chart", `${baseURL}/mm/graph`, "mobilegraph_mm");
 captureImage(
   1000,
   630,
