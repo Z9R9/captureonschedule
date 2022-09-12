@@ -4,7 +4,7 @@
   "description": "capture preview image on time",
   "main": "index.js",
   "scripts": {
-    "fetch": "node index.js",
+    "fetch": "node index.js; node compressImages.mjs; node convertToWebp.mjs;",
     "capture": "node fetchAvatars"
   },
   "repository": {
@@ -21,5 +21,11 @@
   "dependencies": {
     "puppeteer": "^13.5.2",
     "underscore": "^1.13.3"
+  },
+  "devDependencies": {
+    "imagemin": "^8.0.1",
+    "imagemin-mozjpeg": "^10.0.0",
+    "imagemin-pngquant": "^9.0.2",
+    "imagemin-webp": "^7.0.0"
   }
 }

@@ -2,12 +2,12 @@ const fs = require("fs").promises;
 const puppeteer = require("puppeteer");
 const path = require("path");
 
-const fetchImg = async (url) => {
+const fetchImg = async (url, language) => {
   try {
     browser = await puppeteer.launch({ headless: true });
     const page = await browser.newPage();
     await page.setViewport({ width: 1000, height: 630 });
-    await page.goto(`http://localhost:3000/capture/${url}`, {
+    await page.goto(`http://localhost:3000/${language === 'mm' ? 'mm/' : ''}capture/${url}`, {
       waitUntil: "networkidle2",
     });
 
@@ -27,7 +27,7 @@ const fetchImg = async (url) => {
       }, selector);
 
       return await page.screenshot({
-        path: path.join(__dirname, `./avatars/${url}.png`),
+        path: path.join(__dirname, `./avatars/${url}${language === 'mm' ? '_mm' : ''}.png`),
         clip: {
           x: rect.left - padding,
           y: rect.top - padding,
@@ -41,7 +41,7 @@ const fetchImg = async (url) => {
     console.log(`❌ Error: ${err.message}`);
   } finally {
     await browser.close();
-    console.log(`\n🎉 Captured Avatar for ${url}.png `);
+    console.log(`\n🎉 Captured Avatar for ${url}${language === 'mm' ? '_mm' : ''}.png `);
   }
 };
 
@@ -54,7 +54,8 @@ const fetchAllAvatars = async (_) => {
   console.log(`\n🎉 started fetching avatars ... `);
   for (const id of idList) {
     console.log("✍️ working on ID:  ", id);
-    await fetchImg(id);
+    await fetchImg(id, "en");
+    await fetchImg(id, "mm");
   }
   console.log(`\n🎉 finished fetching avatars `);
 
