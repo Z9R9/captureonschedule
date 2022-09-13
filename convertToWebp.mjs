@@ -12,7 +12,7 @@ const destPath = path.join(__dirname, `./webp`);
     await imagemin([destFileName], {
         destination: destPath,
         plugins: [
-            imageminWebp({ quality: 80 })
+            imageminWebp({ quality: 40 })
         ]
     });
 
