@@ -1,7 +1,7 @@
 const puppeteer = require("puppeteer");
 const path = require("path");
 
-const baseURL = "http://localhost:3000";
+const baseURL = "https://coup.aappb.org";
 
 async function captureImage(
   preferwidth,
@@ -76,7 +76,7 @@ captureImage(
   630,
   120,
   "#captureArrested",
-  `${baseURL}/captureArrested`,
+  `${baseURL}/capturearrested`,
   "arrested_en"
 );
 captureImage(
@@ -84,6 +84,6 @@ captureImage(
   630,
   120,
   "#captureArrested",
-  `${baseURL}/mm/captureArrested`,
+  `${baseURL}/mm/capturearrested`,
   "arrested_mm"
 );
