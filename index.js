@@ -1,5 +1,6 @@
-const puppeteer = require("puppeteer");
+const fs = require("fs");
 const path = require("path");
+const puppeteer = require("puppeteer");
 
 const baseURL = "https://coup.aappb.org";
 
@@ -87,3 +88,11 @@ captureImage(
   `${baseURL}/mm/capturearrested`,
   "arrested_mm"
 );
+
+let updatedDate = `Updated on ${new Date().toISOString()}`;
+try {
+  fs.writeFileSync("log.txt", updatedDate);
+  // file written successfully
+} catch (err) {
+  console.error(err);
+}
