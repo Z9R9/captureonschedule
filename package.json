@@ -4,7 +4,7 @@
   "description": "capture preview image on time",
   "main": "index.js",
   "scripts": {
-    "fetch": "node index.js; node compressImages.mjs; node convertToWebp.mjs;",
+    "fetch": "node index.js; node compressImages.mjs",
     "capture": "node fetchAvatars"
   },
   "repository": {
